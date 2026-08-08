@@ -121,22 +121,6 @@
             padding: 0;
         }
 
-        .btn-github {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #24292e;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        .btn-github:hover {
-            opacity: 0.9;
-        }
-
         @media (max-width: 600px) {
             .container { padding: 25px; }
             h1 { font-size: 1.8rem; }
@@ -149,29 +133,43 @@
 <div class="container">
     <header>
         <h1>Privacy Policy</h1>
-        <div class="last-updated">Netflix Speed Controller — Last updated: March 8, 2026</div>
+        <div class="last-updated">Netflix Speed Controller — Last updated: August 7, 2026</div>
     </header>
 
     <section>
         <h2>Overview</h2>
-        <p>Netflix Speed Controller is a free, open-source browser extension licensed under the <strong>MIT License</strong>. This extension is designed with a strict commitment to user privacy. It does not collect, transmit, store, or share any personal data whatsoever.</p>
+        <p>Netflix Speed Controller is a free browser extension. It is designed with a strict commitment to user privacy: it does not collect, transmit, or share any personal data whatsoever, and it never contacts a server. The only data it writes is your own settings, stored on your device — plus, if you explicitly enable it, the playback speeds you have chosen. See <a href="#data-storage">Data Storage</a> for exactly what that includes.</p>
     </section>
 
     <section>
         <h2>Data Collection</h2>
         <p><strong>We do not collect any data.</strong> Specifically:</p>
         <ul>
-            <li>No personal information or browsing history is collected</li>
+            <li>No personal information is collected</li>
             <li>No usage analytics or crash reports are transmitted</li>
             <li>No user identifiers are created and no cookies are set</li>
             <li>No fingerprinting techniques are used</li>
+            <li>Nothing is ever sent off your device</li>
         </ul>
     </section>
 
     <section>
-        <h2>Data Storage</h2>
-        <p>All extension settings are stored <strong>locally on your device only</strong>, using Chrome's built-in <code>storage.sync</code> and <code>storage.local</code> APIs.</p>
-        <p><em>Note: If you have Chrome Sync enabled, Google may sync these settings across your devices. This is a browser feature not controlled by this extension.</em></p>
+        <h2 id="data-storage">Data Storage</h2>
+        <p>All extension data is stored <strong>locally on your device only</strong>, using Chrome's built-in <code>storage.sync</code> and <code>storage.local</code> APIs. Two kinds of data are stored:</p>
+        <ul>
+            <li><strong>Your settings</strong> — default speed, presets, overlay options, keyboard shortcuts, theme and language.</li>
+            <li><strong>Remembered playback speeds</strong> — only if you turn on <em>Remember Playback Speed</em>, which is off by default.</li>
+        </ul>
+
+        <h3>About remembered speeds</h3>
+        <p>If you additionally enable <em>Remember Speed Per Title</em>, the extension saves the name of each show or movie you adjust the speed on, paired with that speed, so it can restore it next time. <strong>This means a list of titles you have watched and changed the speed on is kept on your device.</strong> Please be aware of this before enabling the setting.</p>
+        <ul>
+            <li>It is written to <code>storage.local</code> and is <strong>never synced to your Google account</strong> and never leaves your device.</li>
+            <li>Only titles whose speed you changed are recorded — not your general viewing history.</li>
+            <li>The list is capped at 300 titles; the least recently used entries are discarded automatically.</li>
+            <li>Turning the setting off stops new entries being recorded. <em>Reset to Defaults</em> in Settings erases the entire list immediately, as does uninstalling the extension.</li>
+        </ul>
+        <p><em>Note: If you have Chrome Sync enabled, Google may sync your <strong>settings</strong> across your devices. This is a browser feature not controlled by this extension. Remembered speeds are excluded from this.</em></p>
     </section>
 
     <section>
@@ -189,7 +187,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td><code>storage</code></td><td>Save speed preferences locally.</td></tr>
+                <tr><td><code>storage</code></td><td>Save your settings, and any remembered speeds, locally.</td></tr>
                 <tr><td><code>scripting</code></td><td>Inject the controller into Netflix pages.</td></tr>
                 <tr><td><code>activeTab</code></td><td>Access the current tab to apply speed changes.</td></tr>
                 <tr><td><code>netflix.com</code></td><td>Operate specifically on the Netflix domain.</td></tr>
@@ -199,28 +197,24 @@
 
     <section>
         <h2>Changes to This Policy</h2>
-        <p>If this privacy policy is updated, changes will be noted with an updated "Last updated" date at the top of this document. <strong>Any policy changes will be officially announced via:</strong></p>
-        <ul>
-            <li>A project update on the <strong>GitHub repository</strong>.</li>
-            <li>Release notes within the <strong>Chrome Web Store</strong> update logs.</li>
-        </ul>
+        <p>If this privacy policy is updated, changes will be noted with an updated "Last updated" date at the top of this document. Any policy changes will be officially announced in the release notes within the <strong>Chrome Web Store</strong> update logs.</p>
     </section>
 
     <section>
-        <h2>Contact & Open Source</h2>
-        <p>This extension is fully open source. You can audit the code or report issues via the official repository.</p>
-        <a href="https://github.com/e8013585/netflix-speed-controller" class="btn-github">View on GitHub</a>
+        <h2>Contact</h2>
+        <p>Questions about this policy, or about how the extension handles your data, can be sent through the support link on the extension's <strong>Chrome Web Store</strong> listing.</p>
     </section>
 
     <div class="summary-box">
         <h3 style="margin-top: 0;">Summary</h3>
         <ul class="summary-grid">
-            <li>✅ No data collected</li>
+            <li>✅ Nothing collected or sent anywhere</li>
             <li>✅ No network requests</li>
             <li>✅ No tracking or analytics</li>
-            <li>✅ All settings stored locally</li>
-            <li>✅ Fully open source (MIT)</li>
-            <li>✅ Announcement via GitHub/Web Store</li>
+            <li>✅ All data stays on your device</li>
+            <li>✅ Speed memory is off by default</li>
+            <li>✅ Erasable at any time from Settings</li>
+            <li>✅ Policy changes announced on the Web Store</li>
         </ul>
     </div>
 </div>
